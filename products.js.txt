@@ -1,0 +1,30 @@
+products.js
+
+
+import React from 'react';
+
+class Products extends React.Component{
+ constructor (props){
+     super(props)
+     this.state = {
+         prdct : []
+     }
+ }
+ componentDidMount (){
+    fetch("http://localhost:5000/products")
+    .then(response =>response.json())
+    .then(response => {
+        this.setState({prdct:response})
+    })
+ }
+ render (){
+     return (
+        this.state.prdct.map(prdcts =>{
+            return <li>{prdcts.name}</li>
+        } )
+     )
+ }
+}
+
+
+export default Products

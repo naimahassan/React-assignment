@@ -1,0 +1,29 @@
+Vegetables.js
+
+
+import React from 'react';
+
+class Vegetables extends React.Component{
+    constructor(props){
+        super(props)
+        this.state={
+            vgtbls:[]
+        }
+    }
+    componentDidMount(){
+        fetch("http://localhost:5000/products/vegetables")
+    .then(response =>response.json())
+    .then(response => {
+        this.setState({vgtbls:response})
+    })
+    }
+    render (){
+        return (
+           this.state.vgtbls.map(vgtbl =>{
+               return <li>{vgtbl.name}</li>
+           } )
+        )
+    }
+}
+
+export default Vegetables

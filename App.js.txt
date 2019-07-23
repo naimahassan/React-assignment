@@ -1,0 +1,45 @@
+App.js
+
+import React from 'react';
+import Products from './products';
+import Fruits from './Fruits';
+import Vegetables from './Vegetables';
+import Collapsible from 'react-collapsible';
+
+
+class App extends React.Component{
+  render(){
+    return (
+      <div>
+      <h1 id="title">Welcome to Greens Kiosk</h1>
+      <p>We sell fruits and vegetables</p>
+      
+      <h2>Products</h2>
+      <Collapsible trigger="Click to see Products">
+      <ul id ="products">
+        <Products/>
+
+      </ul>
+      </Collapsible>
+      <h2>fruits</h2>
+      <Collapsible trigger="Click to see Fruits">
+
+      <ul id="fruList">
+        <Fruits/>
+        
+      </ul>
+      </Collapsible>
+      <h2>vegetables</h2>
+      <Collapsible trigger="Click to see veges">
+
+      <ul id="vegList">
+        <Vegetables/>
+        
+      </ul>
+      </Collapsible>
+      </div>
+    )
+  }
+}
+
+export default App;

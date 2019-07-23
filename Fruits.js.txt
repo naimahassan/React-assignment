@@ -1,0 +1,29 @@
+Fruits.js
+
+import React from 'react';
+
+class Fruits extends React.Component{
+    constructor (props){
+        super(props)
+        this.state = {
+            Frts : [] 
+        }
+    }
+    componentDidMount(){
+        fetch("http://localhost:5000/products/fruits")
+    .then(response =>response.json())
+    .then(response => {
+        this.setState({Frts:response})
+    })
+    }
+
+    render (){
+        return (
+           this.state.Frts.map(frt =>{
+               return <li>{frt.name}</li>
+           } )
+        )
+    }
+}
+
+export default Fruits
